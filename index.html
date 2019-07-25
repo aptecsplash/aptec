@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1,minimum-scale=1"></meta>
+    <title>Aptec</title>
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script src="validacion.js"></script>
+    <script type="text/javascript">
+
+    var nombres_1;
+    var apellidos_1;
+
+    function funcion_enviar() {
+
+      nombres_1 = document.getElementById('nombres').value
+      apellidos_1 = document.getElementById('apellidos').value
+      agregarinfo();
+
+      }
+    function agregarinfo() {
+        info = new Inf(nombres_1,apellidos_1);
+        enviarInfo(info);
+      }
+
+function enviarInfo(info){
+  var dataSend = {
+    action: "addCliente",
+    name: info.name,
+
+  };
+}
+
+    	</script>
+</head>
+<body>
+
+            <form action="registro.php" method="post" onsubmit="return validar();">
+              <h2>Registro de informacion</h2>
+              <input type="text"  name="nombres" placeholder="Nombres" required>
+              <input type="text" name="apellidos" placeholder="Apellidos" required>
+              <input type="submit" onclick="funcion_enviar()"value="Enviar">
+            </form>
+
+
+</body>
+</html>
